@@ -45,6 +45,6 @@ export const Footer = () => (
     <div className="mt-8 border-t border-emerald-400 pt-4 text-center text-xs text-emerald-800">
       © {new Date().getFullYear()} AgriGuide AI. All rights reserved.
     </div>
-    <div className="text-center"></div>
+    <div className="text-center">by Muskan</div>
   </footer>
 );
