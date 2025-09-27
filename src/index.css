@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Agricultural AI System Design System - Professional farmer-focused interface */
+
+@layer base {
+  :root {
+    /* Base colors for clean professional look */
+    --background: 0 0% 98%;
+    --foreground: 120 8% 15%;
+
+    /* Card system for feature sections */
+    --card: 0 0% 100%;
+    --card-foreground: 120 8% 15%;
+
+    /* Popover elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 8% 15%;
+
+    /* Primary agricultural green palette */
+    --primary: 120 45% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 120 45% 20%;
+    --primary-light: 120 35% 85%;
+
+    /* Secondary earth tones */
+    --secondary: 45 25% 88%;
+    --secondary-foreground: 120 8% 15%;
+    --secondary-hover: 45 25% 83%;
+
+    /* Muted tones for supporting elements */
+    --muted: 120 10% 95%;
+    --muted-foreground: 120 8% 45%;
+
+    /* Accent green for highlights */
+    --accent: 110 40% 92%;
+    --accent-foreground: 120 45% 25%;
+
+    /* Agricultural success and warning colors */
+    --success: 140 45% 35%;
+    --success-foreground: 0 0% 98%;
+    --warning: 45 85% 55%;
+    --warning-foreground: 45 10% 15%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Professional borders and inputs */
+    --border: 120 15% 85%;
+    --input: 120 15% 95%;
+    --ring: 120 45% 25%;
+
+    /* Agricultural gradients and effects */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(120 45% 30%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(140 45% 40%));
+    --gradient-hero: linear-gradient(135deg, hsl(120 35% 85%), hsl(110 40% 92%));
+    
+    /* Shadows for agricultural interface */
+    --shadow-card: 0 4px 12px hsl(120 45% 25% / 0.08);
+    --shadow-hover: 0 8px 24px hsl(120 45% 25% / 0.12);
+    --shadow-focus: 0 0 0 3px hsl(120 45% 25% / 0.1);
+    
+    /* Animation and transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* =========================================================
+   CLIMATE / NEUMORPHIC THEME (light with a slightly dark vibe)
+   Drop this below your Tailwind directives.
+   --------------------------------------------------------- */
+
+/* ---- Base background + subtle texture ---- */
+:root {
+  --cl-bg: #eaf0f7;            /* page background */
+  --cl-panel: #f7faff;         /* card base */
+  --cl-panel-2: #edf3fb;       /* alt card base */
+  --cl-text: #0f172a;          /* almost-black */
+  --cl-muted: #5c6b85;         /* muted labels */
+  --cl-accent: #2f7df4;        /* primary blue */
+  --cl-accent-2: #f7b500;      /* warm yellow */
+  --cl-shadow: rgba(8, 15, 35, 0.18);
+  --cl-shadow-soft: rgba(15, 23, 42, 0.06);
+}
+
+html, body {
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1000px 500px at 120% -10%, rgba(255,255,255,.75), transparent 60%),
+    linear-gradient(180deg, #eef3f9 0%, #e7ecf4 100%);
+  color: var(--cl-text);
+}
+
+/* --- Climate theme (slightly dark) --- */
+:root {
+  --cl-bg: #eaf0f7;
+  --cl-panel: #f7faff;
+  --cl-panel-2: #edf3fb;
+  --cl-text: #0f172a;
+  --cl-muted: #5c6b85;
+  --cl-accent: #2f7df4;
+  --cl-accent-2: #f7b500;
+  --cl-shadow: rgba(8, 15, 35, 0.18);
+  --cl-shadow-soft: rgba(15, 23, 42, 0.06);
+}
+html, body {
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(255,255,255,.9), transparent 60%),
+    radial-gradient(1000px 500px at 120% -10%, rgba(255,255,255,.75), transparent 60%),
+    linear-gradient(180deg, #eef3f9 0%, #e7ecf4 100%);
+  color: var(--cl-text);
+}
+/* permanent slightly-darker variant via class on <html> */
+.climate-dark {
+  --cl-bg: #dfe6ef;
+  --cl-panel: #eef4fb;
+  --cl-panel-2: #e6edf7;
+  --cl-text: #0b1226;
+  --cl-muted: #495774;
+  --cl-shadow: rgba(8, 15, 35, 0.24);
+  --cl-shadow-soft: rgba(15, 23, 42, 0.10);
+}
+.climate-dark html, .climate-dark body {
+  background: linear-gradient(180deg, #e6edf5 0%, #dce4ee 100%);
+}
+
+/* Neumorphic surfaces */
+.neo {
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--cl-panel) 0%, var(--cl-panel-2) 100%);
+  box-shadow:
+    10px 16px 32px var(--cl-shadow),
+    inset -12px -12px 26px rgba(255,255,255,0.7),
+    inset 8px 8px 18px rgba(0,0,0,0.04);
+  border: 1px solid rgba(255,255,255,0.65);
+}
+.neo-press {
+  box-shadow:
+    inset 8px 10px 20px rgba(0,0,0,0.08),
+    inset -10px -10px 24px rgba(255,255,255,0.85);
+}
+.neo-btn {
+  border-radius: 14px;
+  background: linear-gradient(180deg, #5aa6ff 0%, var(--cl-accent) 100%);
+  color: white;
+  box-shadow: 0 14px 28px rgba(47, 125, 244, 0.28);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.neo-input {
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--cl-panel) 0%, var(--cl-panel-2) 100%);
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow:
+    inset 6px 6px 14px rgba(0,0,0,0.04),
+    inset -10px -10px 16px rgba(255,255,255,0.9);
+}
+.neo-pill {
+  display:inline-flex; align-items:center; gap:.5rem;
+  border-radius:9999px;
+  background: linear-gradient(180deg, var(--cl-panel) 0%, var(--cl-panel-2) 100%);
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow:
+    6px 10px 18px var(--cl-shadow-soft),
+    inset -8px -8px 16px rgba(255,255,255,0.95),
+    inset 4px 4px 10px rgba(0,0,0,0.04);
+  padding:.5rem .9rem;
+  color: var(--cl-muted);
+}
+.neo-pill-active {
+  background: linear-gradient(180deg, #eaf3ff 0%, #d7e7ff 100%);
+  color: var(--cl-accent);
+  border-color: rgba(90,166,255,0.65);
+}
+.neo-icon {
+  width: 64px; height: 64px; display:grid; place-items:center;
+  border-radius:50%;
+  background: linear-gradient(180deg, var(--cl-panel) 0%, var(--cl-panel-2) 100%);
+  box-shadow:
+    8px 12px 24px var(--cl-shadow),
+    inset -10px -10px 20px rgba(255,255,255,0.9),
+    inset 6px 6px 14px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.75);
+}
+.cl-muted { color: var(--cl-muted); }
+.hour-chip {
+  min-width: 70px; text-align: center; border-radius: 16px;
+  background: linear-gradient(180deg, var(--cl-panel) 0%, var(--cl-panel-2) 100%);
+  border: 1px solid rgba(255,255,255,0.75);
+  box-shadow:
+    inset -8px -8px 16px rgba(255,255,255,0.9),
+    inset 5px 5px 10px rgba(0,0,0,0.05);
+  padding: 10px 8px;
+}
+.hour-chip.is-current {
+  background: linear-gradient(180deg, #eaf3ff 0%, #cfe2ff 100%);
+  color: var(--cl-accent);
+  border-color: rgba(90,166,255,0.65);
+}
+
+/* Alerts */
+.alert-card { border-radius: 16px; padding: 12px 14px; }
+.alert-danger { background: #ffe9e9; color: #8b0000; }
+.alert-warn   { background: #fff5df; color: #7a4a00; }
+.alert-info   { background: #eaf3ff; color: #194a9a; }
+.badge {
+  display:inline-block; font-size:12px; padding:2px 8px; border-radius:9999px;
+  background:#eaf3ff; color:#194a9a;
+}
