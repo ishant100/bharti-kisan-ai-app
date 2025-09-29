@@ -1,0 +1,38 @@
+{
+  "subtitle": "Digital Agriculture Assistant",
+
+  "nav": {
+    "home": "Home"
+  },
+  "about": {
+    "title": "About"
+  },
+
+  "a11y": {
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "menu": "Menu"
+  },
+
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "fontSize": "Font Size",
+    "currentSize": "{{size}}px"
+  },
+
+  "chat": { "title": "Chat.AI", "placeholder": "Type your question…", "send": "Send" },
+  "weather": { "title": "Weather", "today": "Today" },
+  "contacts": { "title": "Contacts", "helpText": "Find agri experts and support" },
+
+  "hero": {
+    "title": "AgriGuide AI",
+    "subtitle": "Digital Agriculture Assistant",
+    "description": "AI-powered agricultural advisory system that provides instant expert advice. Get help with crop diseases, weather guidance, pest control, soil management, and farming best practices."
+  },
+  "features": {
+    "textQueries": { "title": "Text Queries", "caption": "Ask questions about farming" },
+    "voiceInput": { "title": "Voice Input", "caption": "Speak your farming questions naturally" },
+    "imageAnalysis": { "title": "Image Analysis", "caption": "Upload crop photos for AI disease detection" }
+  }
+}
