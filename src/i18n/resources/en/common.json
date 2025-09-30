@@ -2,10 +2,11 @@
   "subtitle": "Digital Agriculture Assistant",
 
   "nav": {
-    "home": "Home"
-  },
-  "about": {
-    "title": "About"
+    "home": "Home",
+    "about": "About",
+    "chat": "Chat.AI",
+    "weather": "Weather",
+    "contacts": "Contacts"
   },
 
   "a11y": {
@@ -16,23 +17,149 @@
 
   "settings": {
     "title": "Settings",
-    "language": "Language",
-    "fontSize": "Font Size",
-    "currentSize": "{{size}}px"
+    "language": "Select Language"
   },
 
-  "chat": { "title": "Chat.AI", "placeholder": "Type your question…", "send": "Send" },
-  "weather": { "title": "Weather", "today": "Today" },
-  "contacts": { "title": "Contacts", "helpText": "Find agri experts and support" },
+  "chat": {
+    "title": "Chat.AI",
+    "placeholder": "Type your question…",
+    "send": "Send"
+  },
+
+  "weather": {
+    "title": "Weather",
+    "today": "Today",
+    "forecast": "7-Day Forecast",
+    "selectLocation": "Select a location to see forecast.",
+    "loading": "Loading…",
+    "maxTemp": "Max",
+    "minTemp": "Min",
+    "rain": "Rain",
+    "wind": "Wind"
+  },
+
+  "contacts": {
+    "title": "Contacts",
+    "helpText": "Find agri experts and support",
+    "pageTitle": "Important Agriculture Contacts (India)",
+    "note": "Verify numbers locally; regional KVK contacts vary by district.",
+    "list": {
+      "kcc": { "name": "Kisan Call Center (KCC)", "info": "24x7 toll-free agri advisory, Govt. of India" },
+      "icar": { "name": "ICAR (Indian Council of Agricultural Research)", "info": "Krishi Bhavan, New Delhi" },
+      "pmkisan": { "name": "PM-KISAN Helpdesk", "info": "Farmer income support scheme queries" },
+      "soil": { "name": "Soil Health Card Scheme", "info": "Dept. of Agriculture & Farmers Welfare" }
+    }
+  },
 
   "hero": {
     "title": "AgriGuide AI",
     "subtitle": "Digital Agriculture Assistant",
-    "description": "AI-powered agricultural advisory system that provides instant expert advice. Get help with crop diseases, weather guidance, pest control, soil management, and farming best practices."
+    "description": "AI-powered agricultural advisory system that provides instant expert advice. Get help with crop diseases, weather guidance, pest control, soil management, and farming best practices.",
+    "startQuery": "Start Your Agricultural Query"
   },
+
   "features": {
-    "textQueries": { "title": "Text Queries", "caption": "Ask questions about farming" },
-    "voiceInput": { "title": "Voice Input", "caption": "Speak your farming questions naturally" },
-    "imageAnalysis": { "title": "Image Analysis", "caption": "Upload crop photos for AI disease detection" }
+    "textQueries": {
+      "title": "Text Queries",
+      "caption": "Ask questions about farming"
+    },
+    "voiceInput": {
+      "title": "Voice Input",
+      "caption": "Speak your farming questions naturally"
+    },
+    "imageAnalysis": {
+      "title": "Image Analysis",
+      "caption": "Upload crop photos for AI disease detection"
+    }
+  },
+
+  "query": {
+    "title": "Quick Agricultural Query",
+    "placeholder": "Ask about crops, pests, soil, or weather…",
+    "ask": "Ask",
+    "enterQuestion": "Please enter a question.",
+    "tooLong": "Your question is too long. Please shorten it.",
+    "error": "Something went wrong. Please try again."
+  },
+
+  "reminders": {
+    "title": "Reminders",
+    "addNew": "Add New Reminder",
+    "noReminders": "No reminders yet"
+  },
+
+  "forecast": {
+    "title": "7-Day Forecast",
+    "close": "Close"
+  },
+
+  "market": {
+    "title": "Market Prices & Trends",
+    "close": "Close",
+    "noKey": "Add your free API key from data.gov.in in .env as VITE_DATA_GOV_API_KEY to load real market data.",
+    "date": "Date",
+    "state": "State",
+    "district": "District",
+    "market": "Market",
+    "commodity": "Commodity",
+    "variety": "Variety",
+    "min": "Min",
+    "max": "Max",
+    "modal": "Modal",
+    "noData": "No data."
+  },
+
+  "schemes": {
+    "title": "Government Schemes & Subsidies",
+    "close": "Close",
+    "open": "Open"
+  },
+
+  "soil": {
+    "title": "Soil Health Preview",
+    "close": "Close",
+    "selectLocation": "Select a location to see soil preview.",
+    "date": "Date",
+    "temperature": "Soil Temp (°C)",
+    "moisture": "Soil Moisture (m³/m³)"
+  },
+
+  "context": {
+    "title": "Farm Context",
+    "location": "Location",
+    "crop": "Crop",
+    "selectLocation": "Select your location",
+    "selectCrop": "Select your crop",
+    "forecast": "Forecast",
+    "market": "Market",
+    "schemes": "Schemes",
+    "soil": "Soil"
+  },
+
+  "about": {
+    "title": "About AgriGuide AI",
+    "subtitle": "AI-Based Farmer Query Support & Advisory System",
+    "intro": "Our project, AI-Based Farmer Query Support and Advisory System, is developed to help farmers solve their day-to-day farming problems using Artificial Intelligence (AI).",
+    "featuresTitle": "What's in the App (Features)",
+    "features": {
+      "queries": { "title": "Ask Queries", "desc": "Ask via text, voice, or by uploading a photo." },
+      "crop": { "title": "Crop Guidance", "desc": "Suggests the best crop for your land and season." },
+      "pest": { "title": "Pest & Disease Control", "desc": "Detects issues and gives simple solutions." },
+      "fertilizer": { "title": "Fertilizer & Water Advice", "desc": "Right amounts to avoid waste." },
+      "weather": { "title": "Weather Updates", "desc": "Warns about rain, storms, and heat in advance." },
+      "market": { "title": "Market Prices", "desc": "Find better rates to sell your crops." },
+      "soil": { "title": "Soil Health Tips", "desc": "Practical ways to keep soil fertile." },
+      "schemes": { "title": "Government Schemes", "desc": "Subsidies, loans, and support programs." },
+      "language": { "title": "Local Language Support", "desc": "Simple, farmer-friendly answers." }
+    },
+    "purposeTitle": "Why this App (Purpose)",
+    "purpose": "Farmers often face challenges like crop diseases, unpredictable weather, wrong fertilizer use, and lack of market knowledge. Traditional support is slow and not always available. This app acts as a 24/7 smart assistant, giving the right advice at the right time. It helps increase crop yield, reduce losses, save money, and support modern, sustainable farming practices.",
+    "aimTitle": "Project Aim",
+    "aim": "To use technology in a simple and practical way so that even small farmers in villages can benefit. The ultimate goal is to make farming smarter, easier, and more profitable, contributing to rural development and food security."
+  },
+
+  "common": {
+    "loading": "Loading…",
+    "close": "Close"
   }
 }

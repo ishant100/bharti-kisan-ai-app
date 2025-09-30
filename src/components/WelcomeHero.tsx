@@ -2,10 +2,12 @@ import { Leaf, MessageSquare, Camera, Mic } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-agriculture.jpg";
 
 export const WelcomeHero = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation("common");
 
   // ✅ Voice input (Web Speech API)
   const handleVoiceInput = () => {
@@ -69,17 +71,15 @@ export const WelcomeHero = () => {
           </div>
           <div className="text-left">
             <h1 className="text-3xl md:text-4xl font-bold animate-scale-in">
-              AgriGuide AI
+              {t("hero.title")}
             </h1>
-            <p className="text-white/90 text-lg">Digital Agriculture Assistant</p>
+            <p className="text-white/90 text-lg">{t("hero.subtitle")}</p>
           </div>
         </div>
 
         {/* Tagline */}
         <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
-          AI-powered agricultural advisory system that provides instant expert
-          advice. Get help with crop diseases, weather guidance, pest control,
-          soil management, and farming best practices.
+          {t("hero.description")}
         </p>
 
         {/* Feature Cards */}
@@ -90,8 +90,8 @@ export const WelcomeHero = () => {
             className="cursor-pointer p-4 bg-white/10 backdrop-blur-md border-white/20 text-white hover:scale-105 transition-all duration-300 hover:bg-white/20"
           >
             <MessageSquare className="w-8 h-8 mx-auto mb-3 animate-pulse" />
-            <h3 className="font-semibold mb-2">Text Queries</h3>
-            <p className="text-sm text-white/80">Ask questions about farming</p>
+            <h3 className="font-semibold mb-2">{t("features.textQueries.title")}</h3>
+            <p className="text-sm text-white/80">{t("features.textQueries.caption")}</p>
           </Card>
 
           {/* Voice Input */}
@@ -100,17 +100,17 @@ export const WelcomeHero = () => {
             className="cursor-pointer p-4 bg-white/10 backdrop-blur-md border-white/20 text-white hover:scale-105 transition-all duration-300 hover:bg-white/20"
           >
             <Mic className="w-8 h-8 mx-auto mb-3 animate-pulse" />
-            <h3 className="font-semibold mb-2">Voice Input</h3>
-            <p className="text-sm text-white/80">Speak your farming questions naturally</p>
+            <h3 className="font-semibold mb-2">{t("features.voiceInput.title")}</h3>
+            <p className="text-sm text-white/80">{t("features.voiceInput.caption")}</p>
           </Card>
 
           {/* Image Analysis */}
           <label>
             <Card className="cursor-pointer p-4 bg-white/10 backdrop-blur-md border-white/20 text-white hover:scale-105 transition-all duration-300 hover:bg-white/20">
               <Camera className="w-8 h-8 mx-auto mb-3 animate-pulse" />
-              <h3 className="font-semibold mb-2">Image Analysis</h3>
+              <h3 className="font-semibold mb-2">{t("features.imageAnalysis.title")}</h3>
               <p className="text-sm text-white/80">
-                Upload crop photos for AI disease detection
+                {t("features.imageAnalysis.caption")}
               </p>
               <input
                 type="file"
@@ -129,7 +129,7 @@ export const WelcomeHero = () => {
           size="lg"
           className="text-lg px-8 py-6 animate-scale-in hover:scale-105 transition-all duration-300"
         >
-          Start Your Agricultural Query
+          {t("hero.startQuery")}
         </Button>
       </div>
     </div>

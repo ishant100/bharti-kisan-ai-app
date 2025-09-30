@@ -1,5 +1,6 @@
 // src/pages/Index.tsx
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Footer } from "@/components/Footer";
 import { WelcomeHero } from "@/components/WelcomeHero";
 import { ContextPanel, type City, type PanelType } from "@/components/ContextPanel";
@@ -11,11 +12,8 @@ import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 import { RemindersCard } from "@/components/RemindersCard";
 import { toast, Toaster } from "sonner";
+import { fetchMarketPrices, type MarketPrice } from "@/services/markets";
 
-// OPTIONAL services (paste if you added earlier)
-import { fetchMarketPrices, type MarketPrice } from "@/services/markets"; // needs DATA.GOV.IN key
-
-// quick fallback list for schemes (if you don't have services/schemes.ts)
 const SCHEMES = [
   { title: "PM-KISAN", desc: "₹6,000/year in 3 installments.", url: "https://pmkisan.gov.in/" },
   { title: "PMFBY (Crop Insurance)", desc: "Insurance against natural risks.", url: "https://pmfby.gov.in/" },
@@ -32,14 +30,10 @@ export interface Query {
 }
 
 export default function Index() {
-  // left-panel state we want to reuse
+  const { t } = useTranslation("common");
   const [city, setCity] = useState<City | null>(null);
   const [crop, setCrop] = useState<string>("Paddy (Rice)");
-
-  // which info card is open
   const [panel, setPanel] = useState<PanelType | null>(null);
-
-  // quick Q&A box (home page)
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState<string | null>(null);
   const [qaLoading, setQaLoading] = useState(false);
@@ -51,11 +45,11 @@ export default function Index() {
   async function ask() {
     const q = normalizePrompt(question);
     if (!q) {
-      toast.info("Please enter a question.");
+      toast.info(t("query.enterQuestion"));
       return;
     }
     if (q.length > 800) {
-      toast.warning("Your question is too long. Please shorten it.");
+      toast.warning(t("query.tooLong"));
       return;
     }
 
@@ -71,7 +65,7 @@ export default function Index() {
         .join("\n");
       setAnswer(formatted);
     } catch (e: any) {
-      const msg = e?.message || "Something went wrong. Please try again.";
+      const msg = e?.message || t("query.error");
       toast.error(msg);
       setAnswer("⚠️ " + msg);
     } finally {
@@ -81,14 +75,12 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 via-emerald-50 to-green-100">
-      {/* toast portal */}
       <Toaster richColors position="top-right" />
 
       <main className="container mx-auto px-4 py-8">
         <WelcomeHero />
 
         <div className="grid lg:grid-cols-4 gap-8 mt-8">
-          {/* LEFT: Farm Context */}
           <div className="lg:col-span-1">
             <ContextPanel
               onOpenPanel={setPanel}
@@ -97,18 +89,16 @@ export default function Index() {
             />
           </div>
 
-          {/* RIGHT: main content (quick Q&A + dynamic info card) */}
           <div className="lg:col-span-3 space-y-6">
-            {/* Quick Q&A box */}
             <Card className="p-6 shadow-sm border border-emerald-200/60 bg-white/80 backdrop-blur-sm hover:shadow-md transition-all duration-200 animate-fade-in-up">
               <h2 className="text-2xl font-extrabold text-emerald-800 mb-4">
-                Quick Agricultural Query
+                {t("query.title")}
               </h2>
               <div className="flex gap-2">
                 <Input
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="Ask about crops, pests, soil, or weather…"
+                  placeholder={t("query.placeholder")}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && !qaLoading) ask();
                   }}
@@ -119,7 +109,7 @@ export default function Index() {
                   disabled={qaLoading || !question.trim()}
                   className="bg-emerald-600 hover:bg-emerald-500 text-white text-lg font-semibold px-6"
                 >
-                  {qaLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Ask"}
+                  {qaLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : t("query.ask")}
                 </Button>
               </div>
               {answer && (
@@ -139,7 +129,6 @@ export default function Index() {
 
             <RemindersCard />
 
-            {/* Dynamic info card area (fills blank space) */}
             {panel === "forecast" && (
               <ForecastCard city={city} onClose={() => setPanel(null)} />
             )}
@@ -156,7 +145,7 @@ export default function Index() {
   );
 }
 
-/* -------------------- Cards (inline components) -------------------- */
+/* -------------------- Cards with translations -------------------- */
 
 function ForecastCard({
   city,
@@ -165,6 +154,7 @@ function ForecastCard({
   city: City | null;
   onClose: () => void;
 }) {
+  const { t } = useTranslation("common");
   const [days, setDays] = useState<
     { date: string; temp_max: number; temp_min: number; precipitation: number; wind: number }[]
   >([]);
@@ -187,21 +177,21 @@ function ForecastCard({
     <Card className="p-6 animate-fade-in">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-xl font-semibold">
-          7-Day Forecast {city ? `— ${city.name}` : ""}
+          {t("forecast.title")} {city ? `— ${city.name}` : ""}
         </h3>
         <Button variant="ghost" onClick={onClose}>
-          Close
+          {t("common.close")}
         </Button>
       </div>
       {!city && (
         <div className="text-sm text-muted-foreground">
-          Select a location to see forecast.
+          {t("weather.selectLocation")}
         </div>
       )}
       {city && (
         <div className="grid md:grid-cols-3 gap-4">
           {loading
-            ? "Loading…"
+            ? t("common.loading")
             : days.map((d) => (
                 <Card key={d.date} className="p-4">
                   <div className="text-sm text-muted-foreground">
@@ -211,7 +201,7 @@ function ForecastCard({
                     {Math.round(d.temp_max)}° / {Math.round(d.temp_min)}°C
                   </div>
                   <div className="text-sm">
-                    Rain: {d.precipitation} mm · Wind: {d.wind} km/h
+                    {t("weather.rain")}: {d.precipitation} mm · {t("weather.wind")}: {d.wind} km/h
                   </div>
                 </Card>
               ))}
@@ -230,6 +220,7 @@ function MarketCard({
   city: City | null;
   onClose: () => void;
 }) {
+  const { t } = useTranslation("common");
   const [rows, setRows] = useState<MarketPrice[]>([]);
   const [loading, setLoading] = useState(false);
   const KEY = import.meta.env.VITE_DATA_GOV_API_KEY || "";
@@ -239,7 +230,7 @@ function MarketCard({
     setLoading(true);
     try {
       const today = new Date().toISOString().slice(0, 10);
-      const state = city?.admin1; // best-effort mapping
+      const state = city?.admin1;
       const data = await fetchMarketPrices(
         crop.replace(/\s*\(.+\)/, ""),
         state,
@@ -262,17 +253,16 @@ function MarketCard({
     <Card className="p-6 animate-fade-in">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-xl font-semibold">
-          Market Prices & Trends {city?.admin1 ? `— ${city.admin1}` : ""}
+          {t("market.title")} {city?.admin1 ? `— ${city.admin1}` : ""}
         </h3>
         <Button variant="ghost" onClick={onClose}>
-          Close
+          {t("common.close")}
         </Button>
       </div>
 
       {!KEY && (
         <div className="text-sm text-muted-foreground">
-          Add your free API key from <b>data.gov.in</b> in <code>.env</code> as{" "}
-          <code>VITE_DATA_GOV_API_KEY</code> to load real market data.
+          {t("market.noKey")}
         </div>
       )}
 
@@ -281,29 +271,29 @@ function MarketCard({
           <table className="w-full text-sm">
             <thead className="text-left text-muted-foreground">
               <tr>
-                <th className="py-2">Date</th>
-                <th>State</th>
-                <th>District</th>
-                <th>Market</th>
-                <th>Commodity</th>
-                <th>Variety</th>
-                <th>Min</th>
-                <th>Max</th>
-                <th>Modal</th>
+                <th className="py-2">{t("market.date")}</th>
+                <th>{t("market.state")}</th>
+                <th>{t("market.district")}</th>
+                <th>{t("market.market")}</th>
+                <th>{t("market.commodity")}</th>
+                <th>{t("market.variety")}</th>
+                <th>{t("market.min")}</th>
+                <th>{t("market.max")}</th>
+                <th>{t("market.modal")}</th>
               </tr>
             </thead>
             <tbody>
               {loading && (
                 <tr>
                   <td colSpan={9} className="py-4">
-                    Loading…
+                    {t("common.loading")}
                   </td>
                 </tr>
               )}
               {!loading && rows.length === 0 && (
                 <tr>
                   <td colSpan={9} className="py-4 text-muted-foreground">
-                    No data.
+                    {t("market.noData")}
                   </td>
                 </tr>
               )}
@@ -330,12 +320,14 @@ function MarketCard({
 }
 
 function SchemesCard({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation("common");
+
   return (
     <Card className="p-6 animate-fade-in">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-xl font-semibold">Government Schemes & Subsidies</h3>
+        <h3 className="text-xl font-semibold">{t("schemes.title")}</h3>
         <Button variant="ghost" onClick={onClose}>
-          Close
+          {t("common.close")}
         </Button>
       </div>
       <div className="grid md:grid-cols-2 gap-4">
@@ -349,7 +341,7 @@ function SchemesCard({ onClose }: { onClose: () => void }) {
               target="_blank"
               rel="noreferrer"
             >
-              Open
+              {t("schemes.open")}
             </a>
           </Card>
         ))}
@@ -365,9 +357,8 @@ function SoilCard({
   city: City | null;
   onClose: () => void;
 }) {
-  const [rows, setRows] = useState<{ date: string; t: number | null; m: number | null }[]>(
-    []
-  );
+  const { t } = useTranslation("common");
+  const [rows, setRows] = useState<{ date: string; t: number | null; m: number | null }[]>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -401,15 +392,15 @@ function SoilCard({
     <Card className="p-6 animate-fade-in">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-xl font-semibold">
-          Soil Health Preview {city ? `— ${city.name}` : ""}
+          {t("soil.title")} {city ? `— ${city.name}` : ""}
         </h3>
         <Button variant="ghost" onClick={onClose}>
-          Close
+          {t("common.close")}
         </Button>
       </div>
       {!city && (
         <div className="text-sm text-muted-foreground">
-          Select a location to see soil preview.
+          {t("soil.selectLocation")}
         </div>
       )}
       {city && (
@@ -417,23 +408,23 @@ function SoilCard({
           <table className="w-full text-sm">
             <thead className="text-left text-muted-foreground">
               <tr>
-                <th className="py-2">Date</th>
-                <th>Soil Temp (°C)</th>
-                <th>Soil Moisture (m³/m³)</th>
+                <th className="py-2">{t("soil.date")}</th>
+                <th>{t("soil.temperature")}</th>
+                <th>{t("soil.moisture")}</th>
               </tr>
             </thead>
             <tbody>
               {loading && (
                 <tr>
                   <td colSpan={3} className="py-4">
-                    Loading…
+                    {t("common.loading")}
                   </td>
                 </tr>
               )}
               {!loading && rows.length === 0 && (
                 <tr>
                   <td colSpan={3} className="py-4 text-muted-foreground">
-                    No data.
+                    {t("market.noData")}
                   </td>
                 </tr>
               )}

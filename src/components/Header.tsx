@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Leaf, Bell, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SettingsPopover from "@/components/SettingsPopover";
+import {SettingsPopover} from "@/components/SettingsPopover";
 import { useTranslation } from "react-i18next";
 
 export const Header = () => {
@@ -42,8 +42,8 @@ export const Header = () => {
           <a className="text-black hover:text-gray-700" href="/">{t("nav.home")}</a>
           <a className="text-black hover:text-gray-700" href="/chat">{t("chat.title")}</a>
           <a className="text-black hover:text-gray-700" href="/weather">{t("weather.title")}</a>
-          <a className="text-black hover:text-gray-700" href="/contacts">{t("contacts.title")}</a>
-          <a className="text-black hover:text-gray-700" href="/about">{t("about.title")}</a>
+          <a className="text-black hover:text-gray-700" href="/contacts">{t("nav.contacts")}</a>
+         <a className="text-black hover:text-gray-700" href="/about">{t("nav.about")}</a>
         </nav>
 
         {/* Desktop icons */}
@@ -71,8 +71,8 @@ export const Header = () => {
             <a onClick={() => setOpen(false)} href="/">{t("nav.home")}</a>
             <a onClick={() => setOpen(false)} href="/chat">{t("chat.title")}</a>
             <a onClick={() => setOpen(false)} href="/weather">{t("weather.title")}</a>
-            <a onClick={() => setOpen(false)} href="/contacts">{t("contacts.title")}</a>
-            <a onClick={() => setOpen(false)} href="/about">{t("about.title")}</a>
+            <a onClick={() => setOpen(false)} href="/contacts">{t("nav.contacts")}</a>
+            <a onClick={() => setOpen(false)} href="/about">{t("nav.about")}</a>
 
             <div className="pt-2 border-t">
               <div className="text-xs text-muted-foreground mb-1">{t("settings.title")}</div>

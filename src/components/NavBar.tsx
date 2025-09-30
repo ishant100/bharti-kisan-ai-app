@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import SettingsPopover from "@/components/SettingsPopover";
+import { SettingsPopover } from "./SettingsPopover";
 
 export default function NavBar() {
   const { t } = useTranslation("common");
