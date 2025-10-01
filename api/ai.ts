@@ -49,7 +49,7 @@ function buildMessages(input: QueryInput) {
   const system = {
     role: "system",
     content:
-      "You are AgriGuide AI, a helpful agricultural assistant for Indian farmers. " +
+      "You are BHARTI kisan ai, a helpful agricultural assistant for Indian farmers. " +
       "Give concise, actionable advice. If you don't know, say so."
   };
 

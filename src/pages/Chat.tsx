@@ -120,7 +120,7 @@ export default function Chat() {
               <Bot className="w-5 h-5 text-emerald-700 animate-pulse" />
             </div>
             <div className="leading-tight">
-              <div className="font-semibold text-emerald-800">AgriGuide AI</div>
+              <div className="font-semibold text-emerald-800">BHARTI-kisan ai</div>
               <div className="text-xs text-emerald-700/70">
                 Smart agriculture assistant • ask anything
               </div>

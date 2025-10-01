@@ -10,7 +10,7 @@ export const Footer = () => (
             <Leaf className="w-6 h-6 text-emerald-900" />
           </div>
           <div>
-            <h2 className="font-bold text-xl">AgriGuide AI</h2>
+            <h2 className="font-bold text-xl">BHARTI-kisan ai</h2>
             <p className="text-sm text-emerald-800">Digital Agriculture Assistant</p>
           </div>
         </div>
@@ -25,10 +25,10 @@ export const Footer = () => (
           <Phone className="w-4 h-4" /> +91 98765 43210
         </p>
         <p className="flex items-center gap-2 text-sm mb-2">
-          <Mail className="w-4 h-4" /> support@agriguideai.com
+          <Mail className="w-4 h-4" /> support@BHARTI-kisan ai.com
         </p>
         <p className="flex items-center gap-2 text-sm">
-          <MapPin className="w-4 h-4" /> AgriGuide AI HQ, India
+          <MapPin className="w-4 h-4" /> BHARTI-kisan ai HQ, India
         </p>
       </div>
 
@@ -43,7 +43,7 @@ export const Footer = () => (
       </div>
     </div>
     <div className="mt-8 border-t border-emerald-400 pt-4 text-center text-xs text-emerald-800">
-      © {new Date().getFullYear()} AgriGuide AI. All rights reserved.
+      © {new Date().getFullYear()}BHARTI-kisan ai. All rights reserved.
     </div>
     <div className="text-center">by Ishant</div>
   </footer>

@@ -55,7 +55,7 @@ export const AIResponse = ({ query, isLoading }: AIResponseProps) => {
           <Bot className="w-6 h-6 text-success-foreground" />
         </div>
         <div>
-          <h3 className="font-semibold text-foreground animate-fade-in">AgriGuide AI Response</h3>
+          <h3 className="font-semibold text-foreground animate-fade-in">BHARTI kisan ai Response</h3>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <CheckCircle className="w-4 h-4 text-success" />
             <span>Confidence: {query.confidence}%</span>

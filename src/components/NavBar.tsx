@@ -8,7 +8,7 @@ export default function NavBar() {
     <header className="w-full border-b bg-white">
       <div className="mx-auto max-w-6xl flex items-center justify-between h-14 px-4">
         <div className="flex flex-col leading-tight">
-          <span className="font-semibold text-lg">AgriGuide AI</span>
+          <span className="font-semibold text-lg">BHARTI-kisan ai</span>
           <span className="text-sm text-muted-foreground">{t("subtitle")}</span>
         </div>
 

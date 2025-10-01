@@ -32,7 +32,7 @@ export const Header = () => {
             <Leaf className="w-6 h-6 text-primary-foreground" />
           </div>
           <div className="animate-fade-in">
-            <h1 className="text-xl font-bold text-black">AgriGuide AI</h1>
+            <h1 className="text-xl font-bold text-black">BHARTI-kisan ai</h1>
             <p className="text-sm text-gray-600">{t("subtitle")}</p>
           </div>
         </a>

@@ -27,6 +27,7 @@ export interface Query {
   timestamp: Date;
   response?: string;
   confidence?: number;
+  imageUrl?: string;  
 }
 
 export default function Index() {

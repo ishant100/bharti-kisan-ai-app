@@ -52,7 +52,7 @@
   },
 
   "hero": {
-    "title": "AgriGuide AI",
+    "title": "BHARTI-kisan ai",
     "subtitle": "Digital Agriculture Assistant",
     "description": "AI-powered agricultural advisory system that provides instant expert advice. Get help with crop diseases, weather guidance, pest control, soil management, and farming best practices.",
     "startQuery": "Start Your Agricultural Query"
@@ -137,7 +137,7 @@
   },
 
   "about": {
-    "title": "About AgriGuide AI",
+    "title": "About BHARTI-kisan ai",
     "subtitle": "AI-Based Farmer Query Support & Advisory System",
     "intro": "Our project, AI-Based Farmer Query Support and Advisory System, is developed to help farmers solve their day-to-day farming problems using Artificial Intelligence (AI).",
     "featuresTitle": "What's in the App (Features)",
