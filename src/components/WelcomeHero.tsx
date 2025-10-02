@@ -1,9 +1,10 @@
-import { Leaf, MessageSquare, Camera, Mic } from "lucide-react";
+import { MessageSquare, Camera, Mic } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-agriculture.jpg";
+import logo from "@/assets/new-logo.png";
 
 export const WelcomeHero = () => {
   const navigate = useNavigate();
@@ -64,13 +65,22 @@ export const WelcomeHero = () => {
 
       {/* Content */}
       <div className="relative z-10 p-8 md:p-12 text-center text-white">
-        {/* Logo + Title */}
-        <div className="flex items-center justify-center gap-3 mb-6 animate-fade-in">
-          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center animate-bounce-slow">
-            <Leaf className="w-10 h-10 text-white" />
+        {/* Logo + Title (rounded green badge + white logo) */}
+        <div className="flex items-center justify-center gap-4 mb-6 animate-fade-in">
+          <div
+            className="h-16 w-16 md:h-18 md:w-18 rounded-2xl shadow-sm
+                       bg-gradient-to-br from-emerald-500/80 to-green-700/80
+                       backdrop-blur-[2px] flex items-center justify-center"
+          >
+            <img
+              src={logo}
+              alt="BHARTI-kisan ai"
+              className="h-9 w-auto md:h-10 object-contain block"
+            />
           </div>
-          <div className="text-left">
-            <h1 className="text-3xl md:text-4xl font-bold animate-scale-in">
+
+          <div className="text-left leading-tight">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
               {t("hero.title")}
             </h1>
             <p className="text-white/90 text-lg">{t("hero.subtitle")}</p>

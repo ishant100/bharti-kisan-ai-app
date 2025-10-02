@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Leaf, Bell, Menu, X } from "lucide-react";
+import { Bell, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {SettingsPopover} from "@/components/SettingsPopover";
+import { SettingsPopover } from "@/components/SettingsPopover";
 import { useTranslation } from "react-i18next";
+import logo from "@/assets/new-logo.png";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -25,12 +26,14 @@ export const Header = () => {
           : "bg-transparent border-transparent"
       ].join(" ")}
     >
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Brand */}
+      <div className="container mx-auto px-4 h-22 flex items-center justify-between">
+        {/* Brand (no background behind logo) */}
         <a href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-success rounded-lg flex items-center justify-center shadow-sm">
-            <Leaf className="w-6 h-6 text-primary-foreground" />
-          </div>
+          <img
+            src={logo}
+            alt="App logo"
+            className="w-12 h-12 md:w-14 md:h-14 object-contain shrink-0 block"
+          />
           <div className="animate-fade-in">
             <h1 className="text-xl font-bold text-black">BHARTI-kisan ai</h1>
             <p className="text-sm text-gray-600">{t("subtitle")}</p>
@@ -43,12 +46,17 @@ export const Header = () => {
           <a className="text-black hover:text-gray-700" href="/chat">{t("chat.title")}</a>
           <a className="text-black hover:text-gray-700" href="/weather">{t("weather.title")}</a>
           <a className="text-black hover:text-gray-700" href="/contacts">{t("nav.contacts")}</a>
-         <a className="text-black hover:text-gray-700" href="/about">{t("nav.about")}</a>
+          <a className="text-black hover:text-gray-700" href="/about">{t("nav.about")}</a>
         </nav>
 
         {/* Desktop icons */}
         <div className="hidden md:flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="text-black hover:text-gray-700" aria-label={t("a11y.notifications")}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-black hover:text-gray-700"
+            aria-label={t("a11y.notifications")}
+          >
             <Bell className="w-5 h-5" />
           </Button>
           <SettingsPopover />
@@ -86,4 +94,3 @@ export const Header = () => {
 };
 
 export default Header;
-  
