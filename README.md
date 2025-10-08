@@ -2,7 +2,7 @@
 
 ## Project info
 
-https://paddy-pal-ai-app.vercel.app/
+https://bharti-kisan-ai-app.vercel.app/
 
 ## How can I edit this code?
 
